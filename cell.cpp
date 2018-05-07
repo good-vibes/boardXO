@@ -35,13 +35,17 @@ class cell{
 	}
 	
 
-	
-	
+
 	friend ostream& operator<< (ostream& os, const cell& ce){
 		os << ce.c;	
 		return os ;
 
 	}
+
+	
+	const bool operator==(const char n) const{
+    return c == n;
+}
 
 
 
