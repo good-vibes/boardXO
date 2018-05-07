@@ -15,6 +15,3 @@ cell.o: cell.cpp
 	
 Board.o: Board.cpp Board.hpp
 	$(CXX) $(CXXFLAGS) -c Board.cpp -o Board.o
-
-
-
