@@ -70,13 +70,18 @@ using namespace std;
 		
 		
 		Board& Board::operator= (Board n){
-			this->size = n.size;
+			this->size = b2.size;
+			vector<vector<cell> > newBoard;
 			for (int i = 0; i < size; ++i) {
+				vector<cell> tmp;
 				for (int j = 0; j < size; ++j) {
-					cell c (n.board[i][j].row, n.board[i][j].col, n.board[i][j].c);
-					this->board[i][j] = c;
+					cell c(i, j, b2.board[i][j].c);
+					tmp.push_back(c);
 				}
+				newBoard.push_back(tmp);
 			}
+			
+			board = newBoard;
 			return *this;
 		}
 		
