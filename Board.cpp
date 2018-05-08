@@ -69,7 +69,7 @@ using namespace std;
 		
 		
 		
-		Board& Board::operator= (Board n){
+		Board& Board::operator= (Board b2){
 			this->size = b2.size;
 			vector<vector<cell> > newBoard;
 			for (int i = 0; i < size; ++i) {
