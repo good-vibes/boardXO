@@ -6,7 +6,6 @@ using namespace std;
 		Board::Board(int size){
 			this->size = size;
 			
-			
 			for (int i = 0; i < size; ++i) {
 				vector<cell> tmp;
 				for (int j = 0; j < size; ++j) {
@@ -16,6 +15,18 @@ using namespace std;
 				board.push_back(tmp);
 			}
 			
+		}
+		Board::Board(const Board &b2) {
+			this->size = b2.size;
+			
+			for (int i = 0; i < size; ++i) {
+				vector<cell> tmp;
+				for (int j = 0; j < size; ++j) {
+					cell c(i, j, b2.board[i][j].c);
+					tmp.push_back(c);
+				}
+				board.push_back(tmp);
+			}
 		}
 		
 		cell& Board::operator[](list<int> j){
@@ -43,7 +54,7 @@ using namespace std;
 		
 		Board& Board::operator= (char n){
 			
-			if(n!='.' && n!='X' && n!='O'){
+			if(n!='.' && n!='O' && n!='X'){
 				IllegalCharException ie(n);
 				throw ie;
 			}
@@ -62,7 +73,8 @@ using namespace std;
 			this->size = n.size;
 			for (int i = 0; i < size; ++i) {
 				for (int j = 0; j < size; ++j) {
-					this->board[i][j] = n.board[i][j];
+					cell c (n.board[i][j].row, n.board[i][j].col, n.board[i][j].c);
+					this->board[i][j] = c;
 				}
 			}
 			return *this;
