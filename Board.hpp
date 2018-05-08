@@ -9,8 +9,9 @@ using namespace std;
 class Board{
 	public:
 		int size;	
-		vector<vector<cell>> board;
+		vector<vector<cell> > board;
 		Board(int size);
+		Board(const Board &b2);
 		cell& operator[](list<int> j);
 		friend ostream& operator<< (ostream& os, const Board& b);
 		Board& operator= (char n);
