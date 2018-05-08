@@ -43,7 +43,7 @@ using namespace std;
 		
 		Board& Board::operator= (char n){
 			
-			if(n!='.'){
+			if(n!='.' && n!='X' && n!='O'){
 				IllegalCharException ie(n);
 				throw ie;
 			}
